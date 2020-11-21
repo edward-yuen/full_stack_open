@@ -29,15 +29,16 @@ const setNewVotes = () => {
   setVotes(copy)
 }
 
-console.log("selected:", selected)
-console.log("votes array:", votes)
-
-
   return (
     <div>
-      <div>{props.anecdotes[selected]} has {votes[selected]} votes</div> 
+      <h1>Anecdote of the day</h1>
+      <div>{props.anecdotes[selected]}</div> 
+      <div>has {votes[selected]} votes</div>
       <Button handleClick={()=>setSelectedState(Math.floor(Math.random()*props.anecdotes.length))} text="next anecdote"/>
       <Button handleClick={()=>setNewVotes()} text="vote"/>
+      <h1>Anecdote with the most votes</h1>
+      <div>{props.anecdotes[votes.indexOf(Math.max(...votes))]}</div>
+      <div>has {votes[votes.indexOf(Math.max(...votes))]} votes</div>
     </div>
   )
 }
