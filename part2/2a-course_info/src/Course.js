@@ -12,8 +12,6 @@ const Part = (parts) => {
   const Content = (content) => {
   
     const total = content.parts.map(part => part.exercises).reduce( (accumulator, currentValue, currentIndex, array) => {
-      console.log('what is happening', accumulator, currentValue, currentIndex)
-      console.log('sum', accumulator + currentValue)
       return accumulator+currentValue}) 
     
     return (
