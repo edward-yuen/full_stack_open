@@ -1,6 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
+// import axios from 'axios'
+
+/* const promise = axios.get('http://localhost:3001/notes')
+promise.then(response => {
+  console.log(response)
+}) 
+same as block below*/
+
+/* axios
+  .get('http://localhost:3001/notes')
+  .then(response => {
+    const notes = response.data
+    console.log(notes)
+  })
+
+const promise2 = axios.get('http://localhost:3001/foobar')
+console.log(promise2)
 
 const notes = [
   {
@@ -21,9 +38,11 @@ const notes = [
     date: '2019-05-30T19:20:14.298Z',
     important: true
   }
-]
+] 
+moved all code to App.js
+*/
 
 ReactDOM.render(
-  <App notes={notes} />,
+  <App />,
   document.getElementById('root')
 )
