@@ -1,15 +1,16 @@
 import React from 'react'
+import Weather from './Weather'
 
 
 const Countries = (props) => {
     // console.log(props.countries)
+    const api_key = process.env.REACT_APP_API_KEY
+
     const namesToShow = props.filterName === ''
         ?   props.countries
         :   props.countries.filter(country => country.name.toLowerCase().includes(props.filterName.toLowerCase()))
-        console.log(props.filterName)
-        console.log(props.countries.filter(country => country.name.toLowerCase().includes(props.filterName)))
-        console.log(namesToShow)
-    const showField = namesToShow.length >= 10
+    
+        const showField = namesToShow.length >= 10
         ? "Too many matches, specify another filter"
         : namesToShow.length === 1
             ? namesToShow.map(country => 
@@ -28,11 +29,10 @@ const Countries = (props) => {
                 <div key={country.name}>{country.name} <button onClick= {() => {props.setNewFilter(country.name)}}>show</button> </div>)
   
 
-          
-
     return (
         <div>
         {showField}
+        {namesToShow.length === 1 ? <Weather country = {namesToShow} weather = {props.weather} setWeather = {props.setWeather}/> : ''}
         </div>
     )
 }

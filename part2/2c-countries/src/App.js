@@ -6,6 +6,7 @@ import axios from 'axios'
 const App = () => {
   const [countries, setCountries ] = useState([]) 
   const [filterName, setNewFilter ] = useState('')
+  const [weather, setWeather] = useState(null)
 
   useEffect(() => {
     axios
@@ -18,7 +19,7 @@ const App = () => {
   return (
   <div>
   <Filter countries = {countries} filterName = {filterName} setNewFilter = {setNewFilter} />
-  <Countries countries = {countries} filterName = {filterName} setNewFilter = {setNewFilter}/>
+  <Countries countries = {countries} filterName = {filterName} setNewFilter = {setNewFilter} weather = {weather} setWeather = {setWeather}/>
   </div>
   )
 }

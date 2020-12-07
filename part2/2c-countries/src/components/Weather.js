@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
+import DisplayWeather from './DisplayWeather.js'
 
 const Weather = (props) => {
+    const api_key = process.env.REACT_APP_API_KEY
 
-    console.log(props)
-    const [weather, setWeather] = useState([])
 
     useEffect(() => {
         axios
-          .get(`http://api.weatherstack.com/current?access_key=${props.api}&query=${props.country.capital}&units=f`)
+          .get(`http://api.weatherstack.com/current?access_key=${api_key}&query=${props.country.map(country => country.capital)},${props.country.map(country => country.name)}&units=f`)
           .then(response => {
-            console.log(response)
-            setWeather(response.data)
+            props.setWeather(response.data)
           })
     }, [])
 
-
     return (
         <div>
-            <div> Weather in {props.country.capital}</div> 
-            <div> temperature: {weather.current.temperature} </div>
-        </div>)
+        {props.weather === null ?  'weather not working' : <DisplayWeather weather={props.weather}/>}
+        </div>
+    )
 }
 
 export default Weather
