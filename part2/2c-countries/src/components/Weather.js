@@ -5,7 +5,6 @@ import DisplayWeather from './DisplayWeather.js'
 const Weather = (props) => {
     const api_key = process.env.REACT_APP_API_KEY
 
-
     useEffect(() => {
         axios
           .get(`http://api.weatherstack.com/current?access_key=${api_key}&query=${props.country.map(country => country.capital)},${props.country.map(country => country.name)}&units=f`)

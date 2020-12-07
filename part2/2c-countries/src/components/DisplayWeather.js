@@ -1,7 +1,7 @@
 import React from 'react'
 
 const DisplayWeather = (props) => {
-    console.log('weather props', props.weather)
+
 
     return (
         <div>

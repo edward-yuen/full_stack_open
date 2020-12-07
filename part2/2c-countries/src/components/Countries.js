@@ -4,7 +4,7 @@ import Weather from './Weather'
 
 const Countries = (props) => {
     // console.log(props.countries)
-    const api_key = process.env.REACT_APP_API_KEY
+
 
     const namesToShow = props.filterName === ''
         ?   props.countries
